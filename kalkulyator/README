@@ -1,0 +1,4 @@
+CFLAGS="-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs -O1 -g3" ./configure --build sandybridge-pc-linux-gnu --host arm-none-eabi --disable-assembly --prefix /media/sf_robuntu-shared/gmp-install
+
+CFLAGS="-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs -O1 -g3" ./configure --build x86_64-pc-linux-gnu --host arm-none-eabi --prefix /media/sf_robuntu-shared/gmp-install --with-gmp-build=/media/sf_robuntu-shared/gmp-6.1.99-20160327 --disable-thread-safe
+
