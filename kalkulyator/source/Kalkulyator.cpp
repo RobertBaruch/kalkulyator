@@ -20,6 +20,8 @@ const Kalkulyator& Kalkulyator::instance() {
 
 void Kalkulyator::run() const {
   timer_.delayMsec(500);
+
+  /*
   lcd_.begin();
 
   char str[512];
@@ -39,8 +41,9 @@ void Kalkulyator::run() const {
   for (int i = 0; i < 80 && str[i] != 0; i++) {
     lcd_.write(str[i]);
   }
+  */
 
-  // txData[0] is sent last, with MSb first. txData[1] is sent first with 13th bit first/
+  // txData[0] is sent last, with MSb first. txData[1] is sent first with 13th bit first.
   //
   // 01000 01011000 11111 11111111
   // uint8_t txData[] = { 0b01011000, 0b00001000, 0b11111111, 0b00011111 };

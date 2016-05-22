@@ -9,15 +9,16 @@
 #define SOURCE_TIMER_H_
 
 #include <cstdint>
-#include "Board.h"
+#include "FRDMK64F.h"
 
 namespace kalk {
 
+// Class for the Timer. Depends on Board.
 class Timer {
  private:
   static volatile bool timer_went_off_;
 
-  volatile const Board& board_;  // dependency
+  volatile const FRDMK64F& board_;  // dependency
   friend void PIT0_IRQHandler();
 
   Timer();

@@ -18,6 +18,17 @@
 
 namespace kalk {
 
+// Debug > kalkulyator_Debug_Segger
+
+/**
+ * Class for the Kalkulyator, the main class. Depends on:
+ * - I2C
+ * - SPI
+ * - LCD
+ * - Timer
+ * - GMP
+ * - Stack
+ */
 class Kalkulyator {
  private:
   const I2C& i2c_;
@@ -37,14 +48,20 @@ class Kalkulyator {
   }
 
  public:
+  /**
+   * Gets the singleton instance.
+   */
   static const Kalkulyator& instance();
 
+  /**
+   * Runs the Kalkulator.
+   */
   void run() const;
 
-  Kalkulyator(Kalkulyator&&) = delete;
-  Kalkulyator(const Kalkulyator&) = delete;
-  void operator=(Kalkulyator&&) = delete;
-  void operator=(const Kalkulyator&) = delete;
+  Kalkulyator(Kalkulyator&&) = delete; /**< Disallows copying. */
+  Kalkulyator(const Kalkulyator&) = delete; /**< Disallows copying. */
+  void operator=(Kalkulyator&&) = delete; /**< Disallows copying. */
+  void operator=(const Kalkulyator&) = delete; /**< Disallows copying. */
 };
 
 }  // namespace kalk

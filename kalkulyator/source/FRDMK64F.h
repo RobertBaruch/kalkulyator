@@ -5,8 +5,8 @@
  *      Author: rober
  */
 
-#ifndef SOURCE_BOARD_H_
-#define SOURCE_BOARD_H_
+#ifndef SOURCE_FRDMK64F_H_
+#define SOURCE_FRDMK64F_H_
 
 #include "clock_config.h"
 #include "fsl_port.h"
@@ -15,9 +15,11 @@
 
 namespace kalk {
 
-class Board {
+// The Board is the base of the dependency hierarchy. This contains things
+// that are to be set up before anything else.
+class FRDMK64F {
  private:
-  Board() {
+  FRDMK64F() {
     /* Initialize UART1 pins below */
     /* Ungate the port clock */
     CLOCK_EnableClock(kCLOCK_PortB);
@@ -26,19 +28,20 @@ class Board {
     /* Affects PORTB_PCR17 register */
     PORT_SetPinMux(PORTB, 17u, kPORT_MuxAlt3);
 
+    // Freescale library call: start up the clock in non-low power mode.
     BOARD_BootClockRUN();
 
     uint32_t uartClkSrcFreq = CLOCK_GetCoreSysClkFreq();
     DbgConsole_Init((uint32_t) UART0, 115200, DEBUG_CONSOLE_DEVICE_TYPE_UART, uartClkSrcFreq);
   }
  public:
-  static const Board& instance();
+  static const FRDMK64F& instance();
 
-  Board(Board&&) = delete;
-  Board(const Board&) = delete;
-  void operator=(Board&&) = delete;
-  void operator=(const Board&) = delete;
+  FRDMK64F(FRDMK64F&&) = delete;
+  FRDMK64F(const FRDMK64F&) = delete;
+  void operator=(FRDMK64F&&) = delete;
+  void operator=(const FRDMK64F&) = delete;
 };
 
 }  // namespace kalk
-#endif /* SOURCE_BOARD_H_ */
+#endif /* SOURCE_FRDMK64F_H_ */

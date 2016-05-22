@@ -19,7 +19,7 @@ const Spi& Spi::instance() {
 }
 
 Spi::Spi()
-    : board_(Board::instance()),
+    : board_(FRDMK64F::instance()),
       timer_(Timer::instance()) {
   CLOCK_EnableClock(kCLOCK_PortC);
   CLOCK_EnableClock(kCLOCK_PortD);

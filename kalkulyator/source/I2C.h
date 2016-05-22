@@ -11,7 +11,7 @@
 #include "fsl_common.h"
 #include "clock_config.h"
 #include "fsl_port.h"
-#include "Board.h"
+#include "FRDMK64F.h"
 #include <cstdint>
 
 namespace kalk {
@@ -23,7 +23,7 @@ class I2C {
   static constexpr uint32_t kSclPin = 24;
   static constexpr uint32_t kSdaPin = 25;
 
-  volatile const Board& board_;  // dependency
+  volatile const FRDMK64F& board_;  // dependency
 
   I2C();
 

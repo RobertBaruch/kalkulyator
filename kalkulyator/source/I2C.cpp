@@ -21,7 +21,7 @@ const I2C& I2C::instance() {
 }
 
 I2C::I2C()
-    : board_(Board::instance()) {
+    : board_(FRDMK64F::instance()) {
   i2c_master_config_t config;
 
   CLOCK_EnableClock(kCLOCK_PortE);

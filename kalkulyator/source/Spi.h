@@ -10,14 +10,15 @@
 
 #include <cstddef>
 #include "fsl_dspi.h"
-#include "Board.h"
+#include "FRDMK64F.h"
 #include "Timer.h"
 
 namespace kalk {
 
+// Class for using SPI. Depends on Board and Timer.
 class Spi {
  private:
-  volatile const Board& board_;  // dependency
+  volatile const FRDMK64F& board_;  // dependency
   const Timer& timer_;
 
   Spi();
@@ -27,8 +28,11 @@ class Spi {
 
   void send_blocking(size_t size, uint8_t *data) const;
 
-  Spi(Spi const&) = delete;
-  void operator=(Spi const&) = delete;
+  // No copy
+  Spi(const Spi&) = delete;
+  Spi(Spi&&) = delete;
+  void operator=(const Spi&) = delete;
+  void operator=(Spi&&) = delete;
 };
 
 }  // namespace kalk

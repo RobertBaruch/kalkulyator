@@ -5,12 +5,12 @@
  *      Author: rober
  */
 
-#include "Board.h"
+#include "FRDMK64F.h"
 
 namespace kalk {
 
-const Board& Board::instance() {
-  static Board instance;
+const FRDMK64F& FRDMK64F::instance() {
+  static FRDMK64F instance;
   return instance;
 }
 

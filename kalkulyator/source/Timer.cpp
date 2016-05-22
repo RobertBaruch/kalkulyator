@@ -27,7 +27,7 @@ void PIT0_IRQHandler() {
 	Timer::timer_went_off_ = true;
 }
 
-Timer::Timer() : board_(Board::instance()) {
+Timer::Timer() : board_(FRDMK64F::instance()) {
 	CLOCK_EnableClock(kCLOCK_Pit0);
 	pit_config_t timerConfig {true};
 	PIT_Init(PIT, &timerConfig);
